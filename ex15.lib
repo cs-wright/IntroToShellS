@@ -1,0 +1,118 @@
+#ex15.lib
+
+add_record()
+{
+	echo "add Record"
+}
+
+
+
+take_ans()
+{
+	echo -n "Would you like to enter antother record? (Y/N): "
+	read ans
+}
+
+
+
+
+ask_shopt()
+{
+ans=""
+
+shopt -s nocasematch
+while [ "$ans" != "QUIT" ]
+do
+	case $ans in
+		"Y")	
+			add_record
+			ans=""
+			;;
+		"N")
+			ans="QUIT"	
+			break
+			;;
+		*)	
+			take_ans
+			;;
+	esac
+done
+shopt -u nocasematch
+
+}
+
+
+ask_squareBrackets()
+{
+ans=""
+shopt -s nocasematch
+while [ "$ans" != [YNyn] ]
+do
+        case $ans in
+                [Yy])    
+			add_record
+			ans=""
+			;;
+                [Nn])    
+			break           
+			;;
+                 *)     
+			take_ans
+			;;
+	esac
+done
+
+}
+
+
+ask_case()
+{
+ans=""
+shopt -s nocasematch
+while [ "$ans" != [YNyn] ]
+do
+        case $ans in
+                "Y")
+			add_record
+			ans=""
+			;;
+                "y")    
+			add_record
+			ans=""
+			;;
+                "N")
+			break
+			;;
+                "n")    
+			break
+			;;
+                *)      
+			take_ans
+			;;
+	esac
+done
+}
+
+
+ask_tr()
+{
+ans=""
+while [ "$ans" != [YN] ]
+do
+	ans=`echo "$ans" | tr [:lower:] [:upper:]`
+        case $ans in
+                "Y")    
+			add_record
+			ans=""
+			;;
+                "N")    
+			break
+			;;
+                *)      
+			take_ans
+			;;
+	esac
+done
+
+}
+
