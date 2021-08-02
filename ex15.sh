@@ -3,10 +3,22 @@
 
 echo "shopt Test"
 ask_shopt
+echo
+echo
+echo
 echo "square Test"
+echo
 ask_squareBrackets
+echo
+echo
+echo
 echo "case Test"
+echo
 ask_case
+echo
+echo
+echo
 echo "tr Test"
+echo
 ask_tr
 

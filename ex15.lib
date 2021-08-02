@@ -2,7 +2,36 @@
 
 add_record()
 {
-	echo "add Record"
+	echo "Adding a new record"
+	echo
+	while [ "$firstName" == "" ]
+	do
+		echo
+		echo "This field is required!"
+		echo
+		echo -n "First Name: "
+		read firstName
+	done
+	
+	while [ "$surname" == "" ]
+	do
+		echo
+		echo "This field is required!"
+		echo
+		echo -n "Surname: "
+		read surname
+	done
+	echo
+	echo -n "Email: "
+	read email
+	echo
+	echo -n "Phone No: "
+	read phone
+	echo "$firstName|$surname|$email|$phone" >> addressBook.txt
+	firstName=""
+	surname=""
+	phone=""
+	email=""
 }
 
 
