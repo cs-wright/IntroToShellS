@@ -74,21 +74,31 @@ shopt -u nocasematch
 ask_squareBrackets()
 {
 ans=""
-shopt -s nocasematch
 while [ "$ans" != [YNyn] ]
 do
-        case $ans in
-                [Yy])    
-			add_record
-			ans=""
-			;;
-                [Nn])    
-			break           
-			;;
-                 *)     
-			take_ans
-			;;
-	esac
+
+	if [[ "$ans" == [Yy] ]]; then
+		add_record
+		ans=""
+	elif [[ "$ans" == [Nn] ]]; then
+		break
+	else
+		take_ans
+	fi
+
+
+#        case $ans in
+#                [Yy])    
+#			add_record
+#			ans=""
+#			;;
+#                [Nn])    
+#			break           
+#			;;
+#                *)     
+#			take_ans
+#			;;
+#	esac
 done
 
 }
@@ -97,7 +107,6 @@ done
 ask_case()
 {
 ans=""
-shopt -s nocasematch
 while [ "$ans" != [YNyn] ]
 do
         case $ans in
@@ -141,6 +150,27 @@ do
 			take_ans
 			;;
 	esac
+done
+
+}
+
+ask_comma()
+{
+ans=""
+while [ "$ans" != [YN] ]
+do
+        case ${ans,,} in
+                "y")
+                        add_record
+                        ans=""
+                        ;;
+                "n")
+                        break
+                        ;;
+                *)
+                        take_ans
+                        ;;
+        esac
 done
 
 }

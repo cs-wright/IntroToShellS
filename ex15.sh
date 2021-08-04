@@ -21,4 +21,12 @@ echo
 echo "tr Test"
 echo
 ask_tr
+echo
+echo
+echo
+echo "comma Test"
+echo
+ask_comma
+echo
+echo
 
